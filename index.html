@@ -12,46 +12,78 @@
         box-sizing: border-box;
     }
 
-    body {
-        overflow: hidden;
+    body{
+    overflow:hidden;
+    width:100vw;
+    height:100vh;
+}
 
+#introVideo{
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    z-index:2;
+
+    opacity:1;
+    transition:opacity 1.2s ease;
+}
+
+#mainFrame{
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100%;
+    border:none;
+    z-index:1;
+
+    opacity:0;
+    transition:opacity 1.2s ease;
+}
+
+#introVideo.fade-out{
+    opacity:0;
+}
+
+#mainFrame.show{
+    opacity:1;
+}
     
-        background-image: url("video.jpg");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-
-    video {
-        width: 100vw;
-        height: 100vh;
-        object-fit: cover;
-        cursor: pointer;
-        display: block;
-        background: transparent;
-    }
 </style>
 </head>
 
 <body>
 
-<video id="introVideo" muted autoplay playsinline preload="auto" poster="">
+<video id="introVideo" muted autoplay playsinline preload="auto">
     <source src="video1.mp4" type="video/mp4">
 </video>
 
+<iframe id="mainFrame" src="main.html"></iframe>
+
+
+
 <script>
 const video = document.getElementById("introVideo");
+const frame = document.getElementById("mainFrame");
 
 video.addEventListener("loadeddata", () => {
     video.pause();
 });
 
-video.addEventListener("click", function () {
+video.addEventListener("click", () => {
     video.play();
 });
 
-video.addEventListener("ended", function () {
-    window.location.href = "main.html";
+video.addEventListener("ended", () => {
+
+    frame.classList.add("show");
+    video.classList.add("fade-out");
+
+    setTimeout(() => {
+        video.style.display = "none";
+    }, 1200);
+
 });
 </script>
 
