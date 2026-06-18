@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Wedding Invitation</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    overflow-x:hidden;
+    font-family: 'Cinzel Decorative', serif;
+}
+
+/* =========================HERO SECTION========================= */
+.hero-section{
+    position:relative;
+    width:100%;
+    height:100vh;
+    overflow:hidden;
+}
+
+.bg-video{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* Optional dark overlay */
+/*.hero-section::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.15);
+}*/
+
+.scroll-indicator{
+    position:absolute;
+    bottom:35px;
+    left:50%;
+    transform:translateX(-50%);
+    z-index:5;
+    text-align:center;
+    color:white;
+    cursor:pointer;
+    user-select:none;
+}
+
+.scroll-indicator p{
+    font-size:24px;
+    letter-spacing:2px;
+    margin-bottom:10px;
+    font-weight:300;
+}
+
+.arrow{
+    width:32px;
+    height:32px;
+    animation:bounce 1.8s infinite;
+}
+
+@keyframes bounce{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(8px);
+    }
+}
+
+/* =========================SECTION 2 PLACEHOLDER========================= */
+.section2{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#f8f5f0;
+    text-align:center;
+    padding:40px;
+}
+
+.section2 h2{
+    font-size:42px;
+    color:#7b6148;
+    font-weight:500;
+}
+
+/* =========================MOBILE========================= */
+@media (max-width:768px){
+
+    .scroll-indicator p{
+        font-size:15px;
+        letter-spacing:1.5px;
+    }
+
+    .section2 h2{
+        font-size:32px;
+    }
+}
+
+.countdown-section{
+    background:url("secondsection.jpg") center/cover no-repeat;
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:100px 30px;
+
+    opacity:0;
+    transform:translateY(50px);
+    transition:1s ease;
+    color:#556B43;
+}
+
+.countdown-title,
+.counting-down-text,
+.countdown-message,
+.welcome-text,
+.time-box,
+.time-box span,
+.time-box p{
+    color:#556B43;
+}
+
+.countdown-section > *{
+    position:relative;
+    z-index:2;
+}
+
+.countdown-section.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.countdown-title{
+    
+    font-family:'Cinzel Decorative', serif;
+    font-size:28px;
+    font-weight:400;
+    margin-bottom:50px;
+    max-width:800px;
+    line-height:1.6;
+}
+
+.countdown-container{
+    display:flex;
+    gap:25px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.time-box{
+    
+    min-width:120px;
+}
+
+.time-box span{
+    display:block;
+    font-size:60px;
+    font-family:'Cinzel Decorative', serif;
+    font-weight:700;
+    margin-bottom:10px;
+}
+
+.time-box p{
+    font-size:16px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    font-family:'Cinzel Decorative', serif;
+}
+
+.countdown-logo{
+    width: 200px; 
+    max-width:70%;
+    margin-bottom:35px;
+    display:block;
+}
+
+@media (max-width:768px){
+
+    .countdown-title{
+        font-size:14px;
+        margin-bottom:40px;
+    }
+
+    .countdown-container{
+        gap:15px;
+    }
+
+    .time-box{
+        min-width:70px;
+    }
+
+    .time-box span{
+        font-size:34px;
+    }
+
+    .time-box p{
+        font-size:11px;
+    }
+
+}
+
+.counting-down-text{
+    
+    font-size:60px;
+    font-family:'Great Vibes', cursive;
+    letter-spacing:6px;
+    margin-bottom:20px;
+    font-weight:400;
+}
+
+
+.countdown-message{
+    text-align: center;
+    line-height: 1.8;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+
+@media (max-width:768px){
+
+    .counting-down-text{
+        font-size:42px;
+        letter-spacing:4px;
+        margin-bottom:15px;
+    }
+
+    .countdown-message{
+        font-size:12px;
+    }
+
+}
+
+.welcome-text{
+    font-family:'Great Vibes', cursive;
+    
+    font-size:60px;
+    font-weight:400;
+    margin-bottom:5px; 
+}
+
+
+
+@media (max-width:768px){
+
+    .welcome-text{
+        font-size:42px;
+    }
+
+
+
+}
+
+.details-section{
+    background:url("secondsection.jpg") center/cover no-repeat;
+
+    padding:100px 25px;
+    text-align:center;
+    position:relative;
+    
+}
+
+.details-section::before{
+    content:"";
+    position:absolute;
+    inset:0;
+   
+}
+
+.details-section > *{
+    position:relative;
+    z-index:2;
+}
+
+.details-title{
+    font-family:'Great Vibes', cursive;
+    color:#556B43;
+    font-size:70px;
+    font-weight:400;
+    margin-bottom:5px;
+}
+
+.details-subtitle{
+    font-family:'Cinzel Decorative', serif;
+    color:#556B43;
+    font-size:14px;
+    margin-bottom:60px;
+}
+
+.details-card{
+    max-width:500px;
+    margin:0 auto 70px;
+}
+
+.details-image{
+    width:40%;
+    max-width:240px;
+    border-radius:20px;
+    margin:0 auto 25px;
+    display:block;
+}
+
+.details-card h3{
+    color:#556B43;
+    font-size:24px;
+    margin-bottom:15px;
+}
+
+.place-name{
+    color:#556B43;
+    font-size:16px;
+    line-height:1.8;
+    margin-bottom:15px;
+}
+
+.time{
+    color:#556B43;
+    font-size:16px;
+    margin-bottom:25px;
+}
+
+.location-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    text-decoration:none;
+    background:#556B43;
+    color:white;
+    padding:12px 28px;
+    border-radius:50px;
+    font-size:15px;
+    transition:.3s;
+}
+
+.location-btn:hover{
+    transform:translateY(-3px);
+}
+
+.kids-note{
+    color:#556B43;
+    font-family:'Great Vibes', cursive;
+    font-size:50px;
+    margin-top:30px;
+}
+
+@media(max-width:768px){
+
+    .details-title{
+        font-size:50px;
+    }
+
+    .details-card h3{
+        font-size:18px;
+    }
+
+    .kids-note{
+        font-size:30px;
+    }
+
+}
+
+.rsvp-section {
+  position: relative;
+  background: url("rsvp-bg.jpg") center/cover no-repeat;
+  padding: 80px 20px;
+  display: flex;
+  justify-content: flex-start; /* يخلي المحتوى على الشمال */
+  text-align: left;
+  direction: ltr;
+}
+
+.rsvp-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.4); /* طبقة تغميق */
+}
+
+.rsvp-content {
+  position: relative;
+  max-width: 500px;
+  color: #fff;
+  z-index: 2;
+}
+
+.rsvp-content h2 {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.rsvp-text {
+  margin-bottom: 20px;
+  text-align: center;
+  opacity: 0.9;
+}
+
+.question {
+  margin: 15px 0;
+  font-size: 18px;
+}
+
+.rsvp-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.rsvp-form input,
+.rsvp-form textarea {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+}
+
+.rsvp-form textarea {
+  min-height: 100px;
+  resize: none;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.options label {
+  font-size: 14px;
+}
+
+button {
+  background: #bfa46f;
+  color: #fff;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #a88c5c;
+}
+.rsvp-title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 64px;
+  text-align: center;
+  margin-bottom: 10px;
+  color: #fff; /* تقدري تغيّريه حسب ثيم الدعوة */
+  letter-spacing: 2px;
+}
+
+.section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
+}
+
+.section.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.video-section{
+    padding:0;
+    margin:0;
+    background:none;
+}
+
+.video-frame{
+    position:relative;
+    width:100%;
+    overflow:hidden;
+}
+
+.video-frame video{
+    width:100%;
+    display:block;
+    object-fit:cover;
+    filter:none;
+    opacity:1;
+}
+
+
+
+/* ✨ النص */
+.video-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+.video-text h2 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 60px;
+}
+</style>
+</head>
+<body>
+
+<!-- =========================SECTION 1========================= -->
+<section class="hero-section">
+
+    <video class="bg-video" autoplay muted loop playsinline>
+        <source src="video.mp4" type="video/mp4">
+    </video>
+
+    <div class="scroll-indicator" onclick="scrollToNext()">
+
+        <p>Scroll Down</p>
+
+        <svg class="arrow" viewBox="0 0 24 24" fill="none">
+            <path
+                d="M6 9L12 15L18 9"
+                stroke="white"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"/>
+        </svg>
+
+    </div>
+
+</section>
+
+<section id="section2" class="section countdown-section">
+
+    <img src="logo.png" alt="Logo" class="countdown-logo">
+<br><br>
+    <!-- الجملة الجديدة -->
+    <h3 class="counting-down-text">
+        Countdown
+    </h3>
+
+    <h2 class="countdown-title">
+        Every second brings us closer to forever
+    </h2>
+
+    <div class="countdown-container">
+
+        <div class="time-box">
+            <span id="days">00</span>
+            <p>Days</p>
+        </div>
+
+        <div class="time-box">
+            <span id="hours">00</span>
+            <p>Hours</p>
+        </div>
+
+        <div class="time-box">
+            <span id="minutes">00</span>
+            <p>Minutes</p>
+        </div>
+
+        <div class="time-box">
+            <span id="seconds">00</span>
+            <p>Seconds</p>
+        </div>
+
+    </div>
+
+<br><br><br><br>
+   <h3 class="welcome-text">
+    Welcome!
+</h3>
+  
+    <!-- الرسالة تحت العد التنازلي -->
+   <p class="countdown-message">
+    From the very first moment, we knew 
+    our story was meant to be celebrated.
+    We would be honoured to have 
+    you with us as we begin this 
+    new chapter
+    surrounded by the people we love most
+</p>
+</section>
+
+<section class="details-section">
+
+    <h2 class="details-title">The Details</h2>
+    <p class="details-subtitle">Everything you need to know</p>
+
+    <!-- Ceremony -->
+    <div class="details-card">
+
+        <img src="church.png" alt="Ceremony" class="details-image">
+
+        <h3>Ceremony</h3>
+
+        <p class="place-name">
+            Church of Archangel Michael, Sheraton
+        </p>
+
+        <p class="time">4:00 PM</p>
+
+        <a href="https://maps.app.goo.gl/sKiTUVK2cJNMvgH59?g_st=ic"
+           target="_blank"
+           class="location-btn">
+            Google Maps
+        </a>
+
+    </div>
+
+    <!-- Venue -->
+    <div class="details-card">
+
+        <img src="venue.png" alt="Venue" class="details-image">
+
+        <h3>Venue</h3>
+
+        <p class="place-name">
+            White Cottage Venue - Orabi
+        </p>
+
+        <p class="time">6:00 PM</p>
+
+        <a href="https://maps.app.goo.gl/p2JeGbLdtHYSeNS67?g_st=iw"
+           target="_blank"
+           class="location-btn">
+            Google Maps
+        </a>
+
+    </div>
+
+   <p class="kids-note">
+        Sweet dreams to the little ones
+    </p>
+</section>
+<section class="details-section">
+<section class="rsvp-section">
+
+  <div class="rsvp-overlay"></div>
+
+  <div class="rsvp-content">
+
+    <h2 class="rsvp-title">RSVP</h2>
+
+    <p class="rsvp-text">
+      Your presence means everything to us. Kindly confirm your attendance.
+    </p>
+<br><br>
+    <h3 class="question">WILL YOU BE ATTENDING?</h3>
+
+    <form class="rsvp-form" id="rsvpForm">
+
+      <div class="options">
+        <label>
+          <input type="radio" name="attendance" value="yes">
+          Yes, I'll be there
+        </label>
+
+        <label>
+          <input type="radio" name="attendance" value="no">
+          Unfortunately, I can't make it
+        </label>
+      </div>
+<br><br>
+      <input type="text" name="fullname" placeholder="FULL NAME" required>
+<br>
+      <!-- عدد الأفراد -->
+      <input type="number" name="guests" min="1" placeholder="NUMBER OF GUESTS">
+<br>
+      <!-- رسالة للعروسين -->
+      <textarea name="message" placeholder="MESSAGE FOR THE COUPLE"></textarea>
+<br><br>
+      <button type="submit">Send RSVP</button>
+
+    </form>
+
+  </div>
+
+</section>
+</section>
+
+<section class="video-section">
+
+  <div class="video-frame">
+
+    <video autoplay muted loop playsinline>
+      <source src="fin.mp4" type="video/mp4">
+    </video>
+
+  </div>
+
+</section>
+
+<script>
+function scrollToNext(){
+    document.getElementById("section2").scrollIntoView({
+        behavior: "smooth"
+    });
+}
+</script>
+
+<script>
+
+const weddingDate = new Date("November 5, 2026 16:00:00").getTime();
+
+setInterval(() => {
+
+    const now = new Date().getTime();
+    const distance = weddingDate - now;
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("days").innerHTML = days;
+    document.getElementById("hours").innerHTML = hours;
+    document.getElementById("minutes").innerHTML = minutes;
+    document.getElementById("seconds").innerHTML = seconds;
+
+}, 1000);
+
+</script>
+
+<script>
+const section = document.querySelector('.countdown-section');
+
+const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+        if(entry.isIntersecting){
+            section.classList.add('show');
+        }
+    });
+});
+
+observer.observe(section);
+</script>
+<script>
+document.getElementById("rsvpForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const formData = {
+    name: document.querySelector('[name="fullname"]').value,
+    attendance: document.querySelector('input[name="attendance"]:checked')?.value,
+    guests: document.querySelector('[name="guests"]').value,
+    message: document.querySelector('[name="message"]').value
+  };
+
+  fetch("https://script.google.com/macros/s/AKfycbwSYvzM0bQ3f8bG9WtsZxddw6mj9GVXdPQkHA9byCr7YRpi8I5bZwLK8IjK7wCG3wCW/exec", {
+    method: "POST",
+    body: JSON.stringify(formData)
+  })
+  .then(res => res.text())
+  .then(data => {
+    alert("Thank you! RSVP sent ❤️");
+    document.getElementById("rsvpForm").reset();
+  })
+  .catch(err => {
+    alert("Error sending RSVP");
+    console.log(err);
+  });
+
+});
+</script>
+
+</body>
+</html>

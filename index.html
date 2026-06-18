@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Intro Video</title>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        overflow: hidden;
+
+    
+        background-image: url("video.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    video {
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+        cursor: pointer;
+        display: block;
+        background: transparent;
+    }
+</style>
+</head>
+
+<body>
+
+<video id="introVideo" muted autoplay playsinline preload="auto" poster="">
+    <source src="video1.mp4" type="video/mp4">
+</video>
+
+<script>
+const video = document.getElementById("introVideo");
+
+video.addEventListener("loadeddata", () => {
+    video.pause();
+});
+
+video.addEventListener("click", function () {
+    video.play();
+});
+
+video.addEventListener("ended", function () {
+    window.location.href = "main.html";
+});
+</script>
+
+</body>
+</html>
