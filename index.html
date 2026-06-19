@@ -49,11 +49,31 @@
 #mainFrame.show{
     opacity:1;
 }
-    
+
+#musicBtn{
+    position:fixed;
+    right:15px;
+    bottom:15px;
+    width:42px;
+    height:42px;
+    border:none;
+    border-radius:50%;
+    background:rgba(255,255,255,.9);
+    cursor:pointer;
+    z-index:9999;
+    font-size:18px;
+    box-shadow:0 2px 10px rgba(0,0,0,.15);
+}
+
 </style>
 </head>
 
 <body>
+    <audio id="bgMusic" loop>
+    <source src="song.mp3" type="audio/mpeg">
+</audio>
+
+<button id="musicBtn">🔊</button>
 
 <video id="introVideo" muted autoplay playsinline preload="auto">
     <source src="video1.mp4" type="video/mp4">
@@ -66,13 +86,39 @@
 <script>
 const video = document.getElementById("introVideo");
 const frame = document.getElementById("mainFrame");
+const music = document.getElementById("bgMusic");
+const btn = document.getElementById("musicBtn");
+
+let playing = false;
 
 video.addEventListener("loadeddata", () => {
     video.pause();
 });
 
 video.addEventListener("click", () => {
+
     video.play();
+
+    if(!playing){
+        music.play();
+        playing = true;
+        btn.innerHTML = "🔊";
+    }
+
+});
+
+btn.addEventListener("click", () => {
+
+    if(playing){
+        music.pause();
+        btn.innerHTML = "🔇";
+        playing = false;
+    }else{
+        music.play();
+        btn.innerHTML = "🔊";
+        playing = true;
+    }
+
 });
 
 video.addEventListener("ended", () => {
